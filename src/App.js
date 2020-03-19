@@ -31,7 +31,7 @@ function App() {
 
       <div>
         <GetPic src={nasaData.url}/>
-        <Explanation expl={nasaData.explanation} />
+        <Explanation expl={nasaData.explanation} title={nasaData.title} />
       </div>
       <Footer copyright={nasaData.copyright} date={nasaData.date} />
 
