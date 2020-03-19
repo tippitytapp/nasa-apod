@@ -1,26 +1,41 @@
-import React from "react";
-import Title from "./Page Standards/title"
-import GetPic from "./Page Standards/axios"
+import React, {useState, useEffect} from "react";
+import axios from "axios";
+import Title from "./Components/title";
+import GetPic from "./Components/image";
+import Explanation from "./Components/explanation";
+import Footer from "./Components/footerinfo";
 import "./App.css";
 
 
 
 
-function App(props) {
+function App() {
+
+  const [nasaData, setNasaData] = useState([])
+
+  useEffect(() => {
+    axios.get("https://api.nasa.gov/planetary/apod?api_key=dJzDggM75pbT24RjF0Qf3fYqvjezw1ishFbfpa6p")
+    .then(response => (
+      setNasaData(response.data)
+      // console.log(response.data)
+    ))
+    .catch(err => (
+      console.log(`error received ${err}`)
+    ))
+  }, [])
+
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!  
-      </p>
-      <Title />
-      <GetPic />
-      <h2>{props.title}</h2>
-      <img src={props.hdurl} alt="NASA APOD"</img>
->
-  
+      <Title title={nasaData.title} />
+
+      <div className="picInfo">
+        <GetPic src={nasaData.hdurl} />
+        <Explanation expl={nasaData.explanation} />
+      </div>
+      <Footer copyright={nasaData.copyright} date={nasaData.date} />
+
       </div>
   );
-}
+}    
 
 export default App;
