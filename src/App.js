@@ -26,10 +26,11 @@ function App() {
 
   return (
     <div className="App">
+      
       <Title title={nasaData.title} />
 
-      <div className="picInfo">
-        <GetPic src={nasaData.hdurl} />
+      <div>
+        <GetPic src={nasaData.url}/>
         <Explanation expl={nasaData.explanation} />
       </div>
       <Footer copyright={nasaData.copyright} date={nasaData.date} />

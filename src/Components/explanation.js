@@ -5,7 +5,7 @@ function Explanation (props) {
 
     return(
         <div className="explanation">
-            <p>{props.explanation}</p>
+            <p>{props.expl}</p>
         </div>
     );
 }
