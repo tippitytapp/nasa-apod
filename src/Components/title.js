@@ -8,7 +8,6 @@ console.log(props.title)
     return (
         <>
         <h1>{props.title}</h1>
-        <h2>NASA - Astronomy Photo of the Day</h2>
         </>
     );
 }

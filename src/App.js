@@ -4,9 +4,20 @@ import Title from "./Components/title";
 import GetPic from "./Components/image";
 import Explanation from "./Components/explanation";
 import Footer from "./Components/footerinfo";
+import styled from  "styled-components";
 import "./App.css";
 
+const NavStyles = styled.nav`
+display:flex;
+justify-content:center;
+align-items:center;
+`;
 
+const ImgStyles = styled.img`
+width:50px;
+height:50px;
+margin-right:1%;
+`;
 
 
 function App() {
@@ -26,7 +37,16 @@ function App() {
 
   return (
     <div className="App">
-      
+      <header>
+        <NavStyles>
+          <a href="https://www.nasa.gov">
+            
+          <ImgStyles src="https://i.pinimg.com/originals/4d/e4/30/4de430dde2298e5af2f8287318acf19f.png" alt="nasa logo"></ImgStyles>
+          </a>
+          <h2> NASA Astronomy Photo of The Day</h2>
+          
+        </NavStyles>
+      </header>
       <Title title={nasaData.title} />
 
       <div>
